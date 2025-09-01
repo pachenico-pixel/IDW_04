@@ -1,0 +1,108 @@
+body{
+    background: #e0e0e0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: center;
+}
+/*----------------NAV-BAR----------------*/
+nav {
+    position: fixed;
+    margin-top:auto;
+    width:100%;  
+    background-color: #272a55;
+    height:10%;
+}
+
+
+nav ul {
+    padding:0;
+    list-style: none; 
+    display: flex;                
+    justify-content: center;                  
+    margin: 0;                                     
+    width: 100%;     
+}
+
+nav ul a {
+    text-decoration: none;
+    font-size: 2em;
+    color:white;
+    transition: 1s;
+    padding-top: 5px;
+}
+
+nav ul a:hover{
+    color:rgb(139, 178, 252);
+    font-size:2.2em ;
+}
+
+nav ul li {
+    padding:10px 30px 0px 30px;
+}
+
+/*----------------MAIN----------------*/
+h1{
+    margin:0;
+    padding-top:2.5em;
+    font-size:3em;;
+}
+
+h1 span{
+    color:#272a55;
+}
+
+main section p{
+    padding:1em 0 1em 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+main section h2{
+    font-size: 2em;
+
+}
+
+main section:nth-of-type(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;            
+}
+
+main section img{
+    width: 300px;
+    height: 300px;
+    object-fit:contain;
+    border-radius: 500px;
+}
+
+main section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+main section ul li{
+    transition: 1s;
+}
+
+main section ul li:hover {
+    background-color: #cabdbd;
+}
+
+main section ul li h3{
+    font-size: 1.5em;
+}
+
+main section ul li p{
+    font-weight:bolder;
+    color:#272a55;
+}
+
+/*----------------FOOTER----------------*/
+footer p {
+    font-weight: bolder;
+}
