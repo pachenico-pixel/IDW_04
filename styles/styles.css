@@ -1,0 +1,164 @@
+
+/* ----------GLOBAL---------- */
+body {
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ----------HEADER---------- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1E2A38;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 1rem;
+    margin: 0;
+    position: relative;
+}
+
+.logo {
+    height: 80px;
+}
+
+.header h1 {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+}
+
+.header-right a {
+    text-decoration: none;
+    padding: 10px 16px;
+    background: #8C1C3A;
+    color: white;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.header-right a:hover {
+    background-color: #641229;
+}
+
+/* ----------TARJETAS GENERALES---------- */
+.card {
+    background: #F5F5F5;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    background: #e0e0e0;
+}
+
+.section-alt {
+    background: #F0F3F6;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+}
+
+/* ----------Obras Sociales---------- */
+.Obrasocial{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.Obrasocial li {
+    background: #8C1C3A;
+    border: 1px solid #1E2A38;
+    border-radius: 5px;
+    padding: 6px 12px;
+    color: white;
+    font-weight: 400;
+}
+
+/* ----------Doctores---------- */
+main section ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+main section ul li {
+    width: 250px;
+    text-align: center;
+}
+
+main section ul li img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain; /* Nico aqui probe contain pero las tarjetas quedan raras.*/
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+/* ---------- INSTITUCIONAL ---------- */
+main section div {
+    margin-bottom: 20px;
+}
+
+main section div p {
+    border: 2px solid #1E2A38;
+    border-radius: 8px;
+    padding: 15px;
+    background: #F5F5F5;
+}
+
+/* ----------CONTACTO---------- */
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    margin-bottom: 15px;
+}
+
+section ul li a {
+    display: block;
+    text-decoration: none;
+    color: #1E2A38;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    background: #F5F5F5;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+section ul li a:hover {
+    background: #e0e0e0;
+    color: #8C1C3A;
+}
+
+/* ----------FOOTER---------- */
+footer {
+    background: #1E2A38;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
