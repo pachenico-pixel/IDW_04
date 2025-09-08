@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    margin: 0;   
+    color: #333; 
+}
+
+.header {
+    background: #007bb5;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    margin-bottom: 15px;
+}
+
+.header-left h1 {
+    margin: 10px 0;
+    font-size: 1.8em;
+    line-height: 1.2;
+}
+
+.header-right {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.boton {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+nav ul li {
+    display:inline;
+}
+
+nav ul a {
+    color: #0c0b0b;
+    font-weight: 500;
+    text-decoration: none;
+    transition: text-decoration 0.2s, color 0.2s;
+}
+
+nav ul a:hover{
+    text-decoration: underline;
+    color:aqua;
+}
+
+main {
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    padding: 0 15px;
+}
+section{
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+section h2 {
+    margin-top: 0;
+    color: #007bb5;
+    font-size: 1.5em;
+    margin-bottom: 18px;
+}
+
+.obraSocial{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.obraSocial li {
+    background: #007bb5;
+    border: 1px solid #002b3f;
+    border-radius: 5px;
+    padding: 6px 12px;
+    color: #f4f4f4;
+    font-weight: 400;
+}
+.catalogo {
+    background: none;
+    padding: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 0px;
+}
+.medicos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    padding: 20px 0;
+}
+.medicos > div {
+    background: #fff;
+    border: 1px solid #88cbeb;
+    border-radius: 8px;
+    padding: 18px 22px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.medicos h3 {
+    margin-top: 0;
+    color: #002b3f;
+    font-size: 1.1em;
+}
+
+.logo {
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 20px auto 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #005580;
+}
+
+/* Estilos para la página de contacto */
+.contacto {
+    list-style: none;
+    padding: 0;
+}
+
+.contacto li {
+    margin: 15px 0;
+    font-size: 1.1em;
+}
+
+.contacto a {
+    color: #007bb5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contacto a:hover {
+    color: #005580;
+    text-decoration: underline;
+}
+
+.descripcion {
+    text-align: center;
+    color: #555;
+    margin: 20px 0;
+    font-size: 1.1em;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form label {
+    display: block;
+    margin: 10px 0 5px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form input:focus {
+    border-color: #007bb5;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 181, 0.2);
+}
+
+footer {
+    background: #f5f2f2;     
+    padding: 18px 0;          
+    text-align: center;       
+    color: #555;              
+    margin-top: 40px;         
+    font-size: 0.95em;       
+    border-top: 1px solid #cde6ef; 
+}
