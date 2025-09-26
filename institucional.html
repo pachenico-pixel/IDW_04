@@ -6,20 +6,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Consultorio IDW</title>
 </head>
 <body>
-    <header class="header">
 
-        <div class="header-left">
-            <img src="img/clinica5.png" class="logo" alt="logo de la clinica">
-            <h1>Consultorio <br>Medico IDW</h1>
-        </div>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <div class="navbar-brand mx-auto d-none d-lg-flex align-items-center">
+                    <img src="img/clinica5.png" alt="logo" height="90" class="logo me-2">
+                    <h1 class="fs-1 text-wrap">Consultorio Medico IDW</h1>
+                </div>
 
-        <nav class="header-right">
-            <a href="index.html" class="boton">Inicio</a>
-            <a href="contacto.html" class="boton">Contactos</a>
+                <div class="navbar-brand d-flex d-lg-none align-items-center">
+                    <img src="img/clinica5.png" alt="logo" height="80" class="logo me-2">
+                    <h1 class="fs-1">Consultorio <br>Medico <br>IDW</h1>
+                </div>
+
+                <button class="navbar-toggler d-lg-none ms-auto me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <div class="navbar-brand d-flex align-items-center">
+                        <img src="img/clinica5.png" alt="logo" height="80" class="logo me-2">
+                        <h1 class="fs-1">Consultorio <br>Medico <br>IDW</h1>
+                    </div>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link d-block mb-2 text-center" href="institucional.html"><strong> Institucional</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-block mb-2 text-center" href="contacto.html"><strong>Contactos</strong></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
 
     </header>
@@ -68,5 +99,7 @@
         <p>© 2025 Consultorio Medico IDW</p>
     </footer>
     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 </body>
 </html>
