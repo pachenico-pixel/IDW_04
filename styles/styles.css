@@ -74,15 +74,27 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: 0.3s ease;
 }
+
+.card-title{
+    text-align: center;
+}
 .card p{
+    text-align:center;
     font-size: 1rem;
     font-weight: bold;
     color: white;
     background-color: rgb(7, 199, 192);
+    transition: 0.3s ease-in-out;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: contain;    
 }
 
 .card:hover p {
     background: rgb(116, 235, 231);
+    color:rgb(0,0,0);
 }
 
 .section-alt {
