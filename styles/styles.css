@@ -2,100 +2,137 @@
 
 body {
     background: #f0f0f0;
-    margin: 0;
-    padding: 0;
     font-family: "Nunito Sans", sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-/* ----------HEADER---------- */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* ----------BARRA DE NAVEGACION---------- */
+.navbar {
     background-color: #15265f;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 1rem;
-    margin: 0;
-    position: relative;
+}
+.navbar h1 {
+    color: #F5F5F5;
 }
 
 .logo {
-    height: 80px;
+    height: 90px;
 }
 
-.header h1 {
-    flex: 1;
-    text-align: center;
-    margin: 0;
-    font-size: 1.8rem;
+.nav-item {
+    margin: 0 8px;
 }
 
-.header-right {
-    display: flex;
-    gap: 10px;
-}
-
-.header-right a {
-    text-decoration: none;
-    padding: 10px 16px;
+.nav-link {
     background: rgb(7, 199, 192);
-    color: white;
+    color: #F5F5F5;
     border-radius: 6px;
     transition: 0.3s ease;
 }
 
-.header-right a:hover {
+.nav-link:hover {
     background-color: rgb(116, 235, 231);
+    color: #F5F5F5;
 }
 
-/*-----------MAIN-----------------*/
-.subt1 h2 {
-    text-align: center;
+.navbar-toggler {
+    background-color: #F5F5F5;
 }
 
-.subt1 p{
+.btn-close {
+    background-color: #F5F5F5;
+}
+
+.offcanvas-header {
+    background-color: #15265f;
+}
+
+.navbar-brand span {
+    color: #F5F5F5;
+}
+
+.nav-link {
+    margin-bottom: 10px;
+}
+
+/*----------OBRAS SOCIALES---------*/
+.Os h2 {
+    font-size: 2rem;
+}
+
+.Os p {
     font-size: 1.4rem;
     font-weight: 600;
-    text-align: center;
-    margin: 15px 0;
 }
 
-/* ----------TARJETAS GENERALES---------- */
-.card {
+.boton-os{
+    background: rgb(7, 199, 192);
+    border: 1px solid rgb(7, 199, 192);
+    border-radius: 8px;
+    padding: 12px 20px;
+    color: #F5F5F5;
+    font-weight: bold;
+    width: 100%;
+}
+
+.boton-os:hover {
+    background: rgb(116, 235, 231);
+    color: #F5F5F5;
+}
+
+.ind-txt p {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.ind-txt h2 {
+    font-size: 2rem;
+}
+
+/* ----------TARJETAS DOCTORES---------- */
+.tdoc {
     background: #F5F5F5;
     border-radius: 10px;
-    padding: 20px;
-    margin: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgb(7, 199, 192);
     transition: 0.3s ease;
 }
 
-.card-title{
-    text-align: center;
-}
-.card p{
-    text-align:center;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    background-color: rgb(7, 199, 192);
-    transition: 0.3s ease-in-out;
+.tdoc:hover {
+    transform: translateY(-4px);
 }
 
-.card-img-top {
+.tdoc img {
     height: 200px;
-    object-fit: contain;    
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px 10px 10px 10px;    
 }
 
-.card:hover p {
-    background: rgb(116, 235, 231);
-    color:rgb(0,0,0);
+.tdoc-info {
+    justify-content: space-between;
+    flex-grow: 1;
 }
+
+.tdoc-info h3{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.tdoc-info p{
+    background-color: rgb(7, 199, 192);
+    color: #F5F5F5;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.tdoc-info:hover p {
+    background: rgb(116, 235, 231);
+}
+
+/* ---------- INSTITUCIONAL ---------- */
 
 .section-alt {
     background: #F0F3F6;
@@ -114,63 +151,6 @@ body {
     line-height: 1.8;
 }
 
-/* ----------Obras Sociales---------- */
-.Os h2{
-    text-align: center;
-}
-
-.Os p{
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-align: center;
-    margin: 15px 0;
-}
-
-.Obrasocial{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 15px 0;
-}
-
-.Obrasocial li {
-    background: rgb(7, 199, 192);
-    border: 1px solid #1E2A38;
-    border-radius: 5px;
-    padding: 6px 12px;
-    color: white;
-    font-weight: 400;
-}
-
-.Obrasocial li:hover {
-    background: rgb(116, 235, 231);
-}
-
-/* ----------Doctores---------- */
-main section ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-}
-
-main section ul li {
-    width: 250px;
-    text-align: center;
-}
-
-main section ul li img {
-    width: 220px;
-    height: 220px;
-    object-fit: contain;
-    border-radius: 12px;
-    margin-bottom: 10px;
-}
-
-/* ---------- INSTITUCIONAL ---------- */
 main section div {
     margin-bottom: 20px;
 }
@@ -211,9 +191,6 @@ section ul li a:hover {
 
 /* ----------FOOTER---------- */
 footer {
-    background: #1E2A38;
-    color: #fff;
-    text-align: center;
-    padding: 15px;
-    margin-top: auto;
+    background: #15265f;
+    color: #F5F5F5;
 }
