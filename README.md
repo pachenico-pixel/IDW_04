@@ -10,4 +10,7 @@ Integrantes:
 - Torres Nancy
 - Troillan Romina
 
-NOTAS 1er ENTREGA: las obras sociales y las tarjetas de los doctores no tienen funcionalidad en esta entrega.
+NOTAS 2da ENTREGA:
+
+- Los botones de obras sociales llevan a las respectivas webs de cada una.
+- Las tarjetas de los doctores todavia no tienen funcionalidad.
