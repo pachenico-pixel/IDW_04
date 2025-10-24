@@ -5,7 +5,6 @@ Integrantes:
 
 - Calvo Melisa
 - Joya Diego
-- Larran Jorge
 - Montenegro Nicolas
 - Torres Nancy
 - Troillan Romina
