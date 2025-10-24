@@ -57,12 +57,12 @@ body {
 
 /*----------OBRAS SOCIALES---------*/
 .Os h2 {
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .Os p {
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .boton-os{
@@ -181,4 +181,30 @@ body {
 footer {
     background: #15265f;
     color: #F5F5F5;
+}
+
+/* ----------FORM--------- */
+.modDatos {
+    text-align: center;
+    margin: 10px ;
+
+}
+.low_table {
+    width:100%;
+    border-collapse: collapse;
+
+}
+.table_info{
+    border: 1px solid #8d7878;
+    padding: 8px;
+    background-color:#cec7c7;
+}
+.mb-3 {
+    margin: 10px 0 0 10px;
+
+}
+input{
+    width: 150px;    
+    padding: 5px;     
+    font-size: 14px;
 }
