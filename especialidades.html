@@ -12,7 +12,6 @@
     <title>ABM de Especialidades</title>
 </head>
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid d-flex justify-content-between align-items-center">
@@ -67,18 +66,6 @@
                     <label for="especialidad" class="form-label">Nombre de la Especialidad</label>
                     <input type="text" class="form-control" id="especialidad" placeholder="Cardiología, Pediatría, M. General, Odontología..." required>
                 </div>
-                <div class="mb-3">
-                    <label for="descripcion" class="form-label">Descripción de Especialidad</label>
-                    <input type="text" class="form-control" id="descripcion" placeholder="Descripción" required>
-                </div>
-                <div class="mb-3">
-                    <label for="duracion" class="form-label">Duración de la Consulta (minutos)</label>
-                    <input type="number" class="form-control" id="duracion" placeholder="30, 45, 60..." required>
-                </div>
-                <div class="mb-3">
-                    <label for="costoConsulta" class="form-label">Costo de la Consulta</label>
-                    <input type="number" class="form-control" id="costoConsulta" placeholder="Costo en $" required>
-                </div>
                 <button type="submit" class="btn btn-primary">Registrar Especialidad</button>
             </form>
         </section>
@@ -87,10 +74,8 @@
             <table class="table table-striped table-hover" id="listaEspecialidades">
                 <thead> 
                     <tr class="text-center">
+                        <th>ID</th>
                         <th>Especialidad</th>
-                        <th>Descripción</th>
-                        <th>Duración (min)</th>
-                        <th>Costo ($)</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

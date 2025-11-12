@@ -1,104 +1,133 @@
-const formulario = document.getElementById('turnoForm');
-const inputNombre = document.getElementById('nombre');
-const inputEspecialidad = document.getElementById('especialidad');
-const inputProfesional = document.getElementById('profesional');
-const inputDni = document.getElementById('dni');
-const inputFecha = document.getElementById('fecha');
-const inputHorario = document.getElementById('horario');
-const inputObservacion = document.getElementById('observacion');
-const inputObraSocial = document.getElementById('obrasSocial');
-const inputEmail = document.getElementById('email');
-const tablaBody = document.querySelector('#tablaTurnos tbody');
+document.addEventListener("DOMContentLoaded", async () => {
+  const form = document.getElementById("turnoForm");
+  const selectMedico = document.getElementById("medico");
+  const inputFecha = document.getElementById("fecha");
+  const inputHora = document.getElementById("hora");
+  const selectDisponible = document.getElementById("disponible");
+  const tablaBody = document.querySelector("#tablaTurnos tbody");
 
-let turnos = JSON.parse(localStorage.getItem('turnos')) || [];
-let editIndex = null; // null = alta, numero = editar
+  let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
+  let medicos = [];
+  let editIndex = null;
 
-mostrarTurnos();
+  // 🔹 Flatpickr solo para fecha
+  flatpickr(inputFecha, {
+    minDate: "today",
+    dateFormat: "Y-m-d",
+    locale: "es",
+  });
 
-function altaOModificarTurno(event) {
-    event.preventDefault();
+  // 🔹 Flatpickr solo para hora
+  flatpickr(inputHora, {
+    enableTime: true,
+    noCalendar: true,
+    time_24hr: true,
+    dateFormat: "H:i",
+    locale: "es",
+  });
 
-    const nuevoTurno = {
-        nombre: inputNombre.value.trim(),
-        especialidad: inputEspecialidad.value.trim(),
-        profesional: inputProfesional.value.trim(),
-        dni: inputDni.value.trim(),
-        fecha: inputFecha.value.trim(),
-        horario: inputHorario.value.trim(),
-        observacion: inputObservacion.value.trim(),
-        obraSocial: inputObraSocial.value.trim(),
-        email: inputEmail.value.trim()
-    };
+  // 🔹 Cargar médicos desde JSON + LocalStorage
+  async function cargarMedicos() {
+    const response = await fetch("data/data.json");
+    const data = await response.json();
+    const medicosJSON = data.medicos || [];
+    const medicosLocal = JSON.parse(localStorage.getItem("medicos")) || [];
+    medicos = [...medicosJSON, ...medicosLocal];
+
+    selectMedico.innerHTML = '<option value="">Seleccione un médico</option>';
+    medicos.forEach((m) => {
+      const option = document.createElement("option");
+      option.value = m.id;
+      option.textContent = `${m.nombre} ${m.apellido}`;
+      selectMedico.appendChild(option);
+    });
+  }
+
+  // 🔹 Mostrar turnos en tabla
+  function mostrarTurnos() {
+    tablaBody.innerHTML = "";
+    turnos.forEach((turno, index) => {
+      const medico = medicos.find((m) => m.id === turno.medicoId);
+      const fila = document.createElement("tr");
+      fila.classList.add("text-center");
+
+      fila.innerHTML = `
+        <td>${turno.id}</td>
+        <td>${medico ? medico.nombre + " " + medico.apellido : "Desconocido"}</td>
+        <td>${turno.fecha}</td>
+        <td>${turno.hora}</td>
+        <td>${turno.disponible ? "Sí" : "No"}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" onclick="editarTurno(${index})">Editar</button>
+          <button class="btn btn-danger btn-sm" onclick="eliminarTurno(${index})">Eliminar</button>
+        </td>
+      `;
+      tablaBody.appendChild(fila);
+    });
+  }
+
+  // 🔹 Guardar en LocalStorage
+  function guardarEnLocalStorage() {
+    localStorage.setItem("turnos", JSON.stringify(turnos));
+  }
+
+  // 🔹 Eliminar turno
+  window.eliminarTurno = function (index) {
+    turnos.splice(index, 1);
+    guardarEnLocalStorage();
+    mostrarTurnos();
+  };
+
+  // 🔹 Editar turno
+  window.editarTurno = function (index) {
+    const turno = turnos[index];
+    selectMedico.value = turno.medicoId;
+    inputFecha.value = turno.fecha;
+    inputHora.value = turno.hora;
+    selectDisponible.value = turno.disponible.toString();
+    editIndex = index;
+    window.scrollTo(0, 0);
+  };
+
+  // 🔹 Validaciones y envío del formulario
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const medicoId = parseInt(selectMedico.value);
+    const fecha = inputFecha.value;
+    const hora = inputHora.value;
+    const disponible = selectDisponible.value === "true";
+
+    if (!medicoId) return alert("Debe seleccionar un médico.");
+    if (!fecha || !hora) return alert("Debe seleccionar fecha y hora.");
 
     if (editIndex === null) {
-        //Alta
-        turnos.push(nuevoTurno);
-        alert('Turno registrado con éxito');
+      const nuevoTurno = {
+        id: Math.floor(Math.random() * 1000) + 1,
+        medicoId,
+        fecha,
+        hora,
+        disponible,
+      };
+      turnos.push(nuevoTurno);
     } else {
-        //Editar
-        turnos[editIndex] = nuevoTurno;
-        alert('Datos del turno actualizados con éxito');
-        editIndex = null;
+      const turnoExistente = turnos[editIndex];
+      turnos[editIndex] = {
+        id: turnoExistente.id,
+        medicoId,
+        fecha,
+        hora,
+        disponible,
+      };
+      editIndex = null;
     }
 
     guardarEnLocalStorage();
     mostrarTurnos();
-    formulario.reset();
-}
+    form.reset();
+  });
 
-function mostrarTurnos() {
-    tablaBody.innerHTML = '';
-
-    turnos.forEach((turno, index) => {
-        const fila = document.createElement('tr');
-        fila.classList.add('text-center');
-
-        fila.innerHTML = `
-            <td>${turno.nombre}</td>
-            <td>${turno.especialidad}</td>
-            <td>${turno.profesional}</td>
-            <td>${turno.dni}</td>
-            <td>${turno.fecha}</td>
-            <td>${turno.horario}</td>
-            <td>${turno.observacion}</td>
-            <td>${turno.obraSocial}</td>
-            <td>${turno.email}</td>
-            <td>
-                <button class="btn btn-warning btn-sm me-2" onclick="editarTurno(${index})">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="eliminarTurno(${index})">Eliminar</button>
-            </td>
-        `;
-
-        tablaBody.appendChild(fila);
-    });
-}
-
-function guardarEnLocalStorage() {
-    localStorage.setItem('turnos', JSON.stringify(turnos));
-}
-
-function eliminarTurno(index) {
-    if (confirm('¿Desea eliminar este turno?')) {
-        turnos.splice(index, 1);
-        guardarEnLocalStorage();
-        mostrarTurnos();
-    }
-}
-
-function editarTurno(index) {
-    const turno = turnos[index];
-    inputNombre.value = turno.nombre;
-    inputEspecialidad.value = turno.especialidad;
-    inputProfesional.value = turno.profesional;
-    inputDni.value = turno.dni;
-    inputFecha.value = turno.fecha;
-    inputHorario.value = turno.horario;
-    inputObservacion.value = turno.observacion;
-    inputObraSocial.value = turno.obraSocial;
-    inputEmail.value = turno.email;
-
-    editIndex = index;
-    window.scrollTo(0, 0);
-}
-
-formulario.addEventListener('submit', altaOModificarTurno);
+  // 🔹 Inicialización
+  await cargarMedicos();
+  mostrarTurnos();
+});

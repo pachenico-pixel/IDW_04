@@ -132,6 +132,23 @@ body {
     background: rgb(116, 235, 231);
 }
 
+/* ---------- MODAL DOCTORES ---------- */
+.modal-header {
+  position: relative;
+  background-color: rgb(7, 199, 192);
+}
+
+.modal-header .btn-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  transition:ease-in-out 0.2s;
+}
+
+.modal-header .btn-close:hover {
+    background-color: red;
+}
+
 /* ---------- INSTITUCIONAL ---------- */
 .t-info {
     background: #F5F5F5;

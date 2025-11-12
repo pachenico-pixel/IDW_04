@@ -14,20 +14,18 @@ function altaOModificarEspecialidad(event) {
     event.preventDefault();
 
     const nuevaEspecialidad = {
-        especialidad: inputEspecialidad.value.trim(),
-        descripcion: inputDescripcion.value.trim(),
-        duracion: inputDuracion.value.trim(),
-        costoConsulta: inputCostoConsulta.value.trim()
+        id: Math.floor(Math.random() * 1000) + 1,
+        nombre: inputEspecialidad.value.trim(),
     };
 
     if (editIndex === null) {
         //Alta
         especialidades.push(nuevaEspecialidad);
-        alert('Especialidad registrada con éxito');
+        alert('Especialidad registrada con exito');
     } else {
         //Editar
         especialidades[editIndex] = nuevaEspecialidad;
-        alert('Datos de la especialidad actualizados con éxito');
+        alert('Datos de la especialidad actualizados con exito');
         editIndex = null;
     }
 
@@ -44,10 +42,8 @@ function mostrarEspecialidades() {
         fila.classList.add('text-center');
 
         fila.innerHTML = `
-            <td>${especialidad.especialidad}</td>
-            <td>${especialidad.descripcion}</td>
-            <td>${especialidad.duracion}</td>
-            <td>${especialidad.costoConsulta}</td>
+            <td>${especialidad.id}</td>
+            <td>${especialidad.nombre}</td>
             <td>
                 <button class="btn btn-warning btn-sm me-2" onclick="editarEspecialidad(${index})">Editar</button>
                 <button class="btn btn-danger btn-sm" onclick="eliminarEspecialidad(${index})">Eliminar</button>
@@ -72,10 +68,7 @@ function eliminarEspecialidad(index) {
 
 function editarEspecialidad(index) {
     const especialidad = especialidades[index];
-    inputEspecialidad.value = especialidad.especialidad;
-    inputDescripcion.value = especialidad.descripcion;
-    inputDuracion.value = especialidad.duracion;
-    inputCostoConsulta.value = especialidad.costoConsulta;
+    inputEspecialidad.value = especialidad.nombre;
 
     editIndex = index;
     window.scrollTo(0, 0);
