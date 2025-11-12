@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>Consultorio IDW</title>
+</head>
+<body class="d-flex flex-column m-0 p-0 min-vh-100">
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <div class="navbar-brand mx-auto d-none d-lg-flex align-items-center">
+                    <img src="img/clinica5.png" alt="logo" class="logo me-2">
+                    <h1 class="fs-1 text-wrap">Consultorio Medico IDW</h1>
+                </div>
+
+                <div class="navbar-brand d-flex d-lg-none align-items-center">
+                    <img src="img/clinica5.png" alt="logo" class="logo me-2">
+                    
+                    <h1 class="fs-1">Consultorio <br>Medico <br>IDW</h1>
+                </div>
+
+                <button class="navbar-toggler d-lg-none ms-auto me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <div class="navbar-brand d-flex align-items-center">
+                        <img src="img/clinica5.png" alt="logo" class="logo me-2">
+                        <h1 class="fs-1">Consultorio <br>Medico <br>IDW</h1>
+                    </div>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link d-block mb-2 text-center" href="index.html"><strong> Inicio</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-block mb-2 text-center" href="contacto.html"><strong>Contactos</strong></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <main class="container mt-4">
+        <h2>Lista de usuario</h2>
+        <table class="table table-striped mt-3" id="tablaUsuarios">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Email</th>
+                    <th>telefono</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </main>
+    <footer class="text-center py-3 w-100 mt-auto">
+
+        <div class="container-fluid">
+            <p>© 2025 Consultorio Medico IDW</p>
+        </div>
+
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="scripts/usuarios.js"></script>
+</body>
+</html>
