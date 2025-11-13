@@ -26,3 +26,5 @@ Con rol de user
 user: evelyns
 password: evelynspass
 
+
+Para poder hacer una reserva de un turno un usuario con el rol administrador tiene que haber creado previamente un turno con el estado disponible, al reservarse este turno pasa a estar no disponible.
