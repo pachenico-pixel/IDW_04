@@ -8,12 +8,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   const btnSubmit = document.querySelector("button[type='submit']");
   const form = document.getElementById("reservaForm");
 
-  // 📁 Cargar datos
   const response = await fetch("data/data.json");
   const data = await response.json();
 
-  const especialidades = data.especialidades;
-  const obrasSociales = data.obrasSociales;
+  const especialidadesBase = data.especialidades;
+  const especialidadesLocal = JSON.parse(localStorage.getItem("especialidades")) || [];
+  const especialidades = [...especialidadesBase, ...especialidadesLocal];
+
+  const obrasSocialesBase = data.obrasSociales;
+  const obrasSocialesLocal = JSON.parse(localStorage.getItem("obrasSociales")) || [];
+  const obrasSociales = [...obrasSocialesBase, ...obrasSocialesLocal];
   const medicosBase = data.medicos;
 
   const medicosLocal = JSON.parse(localStorage.getItem("medicos")) || [];
@@ -84,11 +88,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Mostrar precio original
     valorConsultaSpan.innerHTML = `
-      💵 <strong>Precio original:</strong> ${medico.valorConsulta.toLocaleString("es-AR", {
+      <strong>Precio original:</strong> ${medico.valorConsulta.toLocaleString("es-AR", {
         style: "currency",
         currency: "ARS",
       })}<br>
-      🎟️ <strong>Precio con descuento:</strong> —
+      <strong>Precio con descuento:</strong> —
     `;
 
     // Solo una checkbox activa a la vez
@@ -105,11 +109,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           const valorConDescuento = medico.valorConsulta * (1 - descuento / 100);
 
           valorConsultaSpan.innerHTML = `
-            💵 <strong>Precio original:</strong> ${medico.valorConsulta.toLocaleString("es-AR", {
+            <strong>Precio original:</strong> ${medico.valorConsulta.toLocaleString("es-AR", {
               style: "currency",
               currency: "ARS",
             })}<br>
-            🎟️ <strong>Precio con descuento (${obra.nombre} -${obra.descuento}%):</strong> 
+             <strong>Precio con descuento (${obra.nombre} -${obra.descuento}%):</strong> 
             ${valorConDescuento.toLocaleString("es-AR", {
               style: "currency",
               currency: "ARS",
@@ -117,11 +121,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           `;
         } else {
           valorConsultaSpan.innerHTML = `
-            💵 <strong>Precio original:</strong> ${medico.valorConsulta.toLocaleString("es-AR", {
+            <strong>Precio original:</strong> ${medico.valorConsulta.toLocaleString("es-AR", {
               style: "currency",
               currency: "ARS",
             })}<br>
-            🎟️ <strong>Precio con descuento:</strong> —
+            <strong>Precio con descuento:</strong> —
           `;
         }
       });
@@ -188,7 +192,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       localStorage.setItem("turnos", JSON.stringify(turnos));
     }
 
-    alert(`✅ Reserva registrada con éxito.
+    alert(`Reserva registrada con éxito.
 Valor total: ${valorConDescuento.toLocaleString("es-AR", {
       style: "currency",
       currency: "ARS",

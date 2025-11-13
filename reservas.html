@@ -9,40 +9,67 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">    <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
 </head>
 
 <body class="bg-light">
-  <header>
-    <nav class="navbar navbar-expand-lg shadow-sm">
+    <header>
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid d-flex justify-content-between align-items-center">
+
+        <!-- LOGO GRANDE -->
         <div class="navbar-brand mx-auto d-none d-lg-flex align-items-center">
           <img src="img/clinica5.png" alt="logo" class="logo me-2">
-          <h1 class="fs-1 text-wrap">Consultorio Médico IDW</h1>
+          <h1 class="fs-1 text-wrap">Consultorio Medico IDW</h1>
         </div>
+
+        <!-- LOGO PARA MÓVIL -->
         <div class="navbar-brand d-flex d-lg-none align-items-center">
           <img src="img/clinica5.png" alt="logo" class="logo me-2">
-          <h1 class="fs-1">Consultorio <br>Médico <br>IDW</h1>
+          <h1 class="fs-1">Consultorio <br>Medico <br>IDW</h1>
         </div>
-        <button class="navbar-toggler d-lg-none ms-auto me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+
+        <button class="navbar-toggler d-lg-none ms-auto me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+        
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Menú</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            <div class="navbar-brand d-flex align-items-center">
+              <img src="img/clinica5.png" alt="logo" class="logo me-2">
+              <h1 class="fs-1">Consultorio <br>Medico <br>IDW</h1>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav text-center">
-              <li class="nav-item"><a class="nav-link" href="institucional.html"><strong>Institucional</strong></a></li>
-              <li class="nav-item"><a class="nav-link" href="contacto.html"><strong>Contactos</strong></a></li>
-              <li class="nav-item"><a class="nav-link" href="abmMedico.html"><strong>Administrar</strong></a></li>
+
+          <div class="offcanvas-body d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between">
+
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link d-block mb-2 text-center" href="reservas.html"><strong>Reservas</strong></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-block mb-2 text-center" href="institucional.html"><strong>Institucional</strong></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-block mb-2 text-center" href="contacto.html"><strong>Contactos</strong></a>
+              </li>
             </ul>
+
+            <div class="d-flex align-items-center justify-content-center justify-content-lg-end mt-3 mt-lg-0 ms-lg-3">
+              <button id="adminBtn" class="btn boton-admin d-none me-2">Admin</button>
+              <button id="loginLogoutBtn" class="boton-login d-flex align-items-center justify-content-center">
+                <i class="bi bi-box-arrow-in-right"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </nav>
   </header>
-
+  
   <main class="container my-5">
 
     <h2 class="text-center mb-4">Buscar un turno</h2>
@@ -100,5 +127,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts/reservas.js"></script>
+  <script src="scripts/auth.js"></script>
 </body>
 </html>

@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
-    <title>Consultorio IDW</title>
 </head>
-<body class="d-flex flex-column m-0 p-0 min-vh-100">
-  <header>
+<body class="bg-light vh-100">
+    <header>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid d-flex justify-content-between align-items-center">
 
@@ -67,55 +68,27 @@
       </div>
     </nav>
   </header>
-    <section class="container my-5">
-        <h2 class="cont-texto text-center mb-4">Contactanos para reservar tu turno o visitanos:</h2>
-        <div class="row g-4">
-
-            <div class="col-12 col-md-6">
-                <div class="t-cont h-100 d-flex justify-content-center align-items-center text-center">
-                    <div class="t-cont-link text-center">
-                        <a href="https://wa.me/543459876543" target="_blank">+54 9 345 987-6543 (Whatsapp)</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="t-cont h-100 d-flex justify-content-center align-items-center text-center">
-                    <div class="t-cont-link text-center">
-                        <a href="#">(011) 4321-9876 (Teléfono fijo)</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="t-cont h-100 d-flex justify-content-center align-items-center text-center">
-                    <div class="t-cont-link text-center">
-                        <a href="mailto:contacto@clinicaidw.com" target="_blank">contacto@clinicaidw.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="t-cont h-100 d-flex justify-content-center align-items-center text-center">
-                    <div class="t-cont-link text-center">
-                        <a href="https://www.google.com/maps?q=Av.+San+Martín+1859,+Concordia,+Entre+Ríos" target="_blank">Av. San Martín 1859, Concordia, Entre Ríos</a>
-                    </div>
-                </div>
-            </div>
-
-         </div>
-    </section>
-    
-
-    <footer class="text-center py-3 w-100 mt-auto">
-
-        <div class="container-fluid">
-            <p>© 2025 Consultorio Medico IDW</p>
+  <main class="flex-grow-1 d-flex justify-content-center align-items-start pt-5">
+    <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
+      <h3 class="text-center mb-4">Iniciar sesión</h3>
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="username" class="form-label">Usuario</label>
+          <input type="text" id="username" class="form-control" required>
         </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" id="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Ingresar
+        </button>
+      </form>
+      <p id="loginError" class="text-danger mt-3 text-center d-none">Credenciales incorrectas</p>
+    </div>
+  </main>
 
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="scripts/auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts/login.js"></script>
 </body>
 </html>

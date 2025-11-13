@@ -1,49 +1,65 @@
-import { login } from './auth.js';
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("loginForm");
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const errorMsg = document.getElementById("loginError");
+  const submitBtn = form.querySelector("button[type='submit']");
 
-const formLoginMed = document.getElementById('formLoginMed');
-const usuario = document.getElementById('usuario');
-const clave = document.getElementById('clave');
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorMsg.classList.add("d-none");
+    errorMsg.textContent = "";
 
-function mostrarMensaje(texto, tipo) {
-    const mensajeDiv = document.createElement('div');
-    mensajeDiv.className = `alert alert-${tipo}`;
-    mensajeDiv.textContent = texto;
-    
-    const container = document.querySelector('.card');
-    container.insertBefore(mensajeDiv, formLoginMed);
-}
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
 
-formLoginMed.addEventListener('submit', async function (event) {
-    event.preventDefault();
-    
-    let usuarioInput = usuario.value.trim();
-    let claveInput = clave.value.trim();
-
-    if (!usuarioInput || !claveInput) {
-        mostrarMensaje('Completa usuario y contraseña', 'warning');
-        return;
+    if (!username || !password) {
+      errorMsg.textContent = "Ingrese usuario y contraseña.";
+      errorMsg.classList.remove("d-none");
+      return;
     }
 
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Ingresando...";
 
-    let medicos = JSON.parse(sessionStorage.getItem('medicos')) || [];
-    let medicoLocal = medicos.find(m => m.usuario === usuarioInput && m.clave === claveInput);
-    
-    if (medicoLocal) {
-        sessionStorage.setItem('usuarioLogueado', medicoLocal.usuario);
-        sessionStorage.setItem('token', 'local-token-' + Date.now());
-        if (medicoLocal.role) sessionStorage.setItem('role', medicoLocal.role);
-        window.location.href = 'pacientes.html';
-        return;
+    try {
+      const res = await fetch("https://dummyjson.com/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const loginData = await res.json();
+
+      if (!res.ok || !loginData.accessToken) {
+        throw new Error("Error al iniciar sesión");
+      }
+
+      const userRes = await fetch(`https://dummyjson.com/users/${loginData.id}`);
+      const userDataFull = await userRes.json();
+
+      const userData = {
+        id: loginData.id,
+        username: loginData.username,
+        firstName: loginData.firstName || userDataFull.firstName,
+        email: loginData.email || userDataFull.email,
+        role: userDataFull.role,
+        accessToken: loginData.accessToken,
+        refreshToken: loginData.refreshToken,
+      };
+
+      // 🔹 Paso 4: Guardar en localStorage
+      localStorage.setItem("user", JSON.stringify(userData));
+
+      // 🔹 Paso 5: Redirigir
+      window.location.href = "index.html";
+
+    } catch (err) {
+      errorMsg.textContent = err.message || "Error al iniciar sesion";
+      errorMsg.classList.remove("d-none");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Ingresar";
     }
-    I
-    const isUsuario = await login(usuarioInput, claveInput);
-    
-    if (isUsuario) {
-        sessionStorage.setItem('usuarioLogueado', isUsuario.username);
-        sessionStorage.setItem('token', isUsuario.accessToken);
-        if (isUsuario.role) sessionStorage.setItem('role', isUsuario.role);
-        window.location.href = 'admin.html';
-    } else {
-        mostrarMensaje('Error en credenciales', 'danger');
-    }
+  });
 });
